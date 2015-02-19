@@ -1,18 +1,14 @@
 # == Schema Information
 #
-# Table name: teams
+# Table name: leagues
 #
 #  id         :integer          not null, primary key
-#  league_id  :integer
 #  name       :string
+#  skill      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
-
-class TeamTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class League < ActiveRecord::Base
+  has_many :teams
 end

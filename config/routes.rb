@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'league/index'
+
+  get 'league/edit'
+
+  get 'league/new'
+
+  get 'league/show'
+
   root 'team_player#index'
 
   resources :teams

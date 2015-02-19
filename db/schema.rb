@@ -16,6 +16,13 @@ ActiveRecord::Schema.define(version: 20150219191209) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "leagues", force: :cascade do |t|
+    t.string   "name"
+    t.string   "skill"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "players", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -33,11 +40,15 @@ ActiveRecord::Schema.define(version: 20150219191209) do
   add_index "team_players", ["team_id"], name: "index_team_players_on_team_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
+    t.integer  "league_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "teams", ["league_id"], name: "index_teams_on_league_id", using: :btree
+
   add_foreign_key "team_players", "players"
   add_foreign_key "team_players", "teams"
+  add_foreign_key "teams", "leagues"
 end
