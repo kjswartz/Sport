@@ -11,7 +11,7 @@
 
 class League < ActiveRecord::Base
   #associations
-  has_many :teams
+  has_many :teams, dependent: :destroy
 
   #validations
   validates :name, presence: true, uniqueness: true
