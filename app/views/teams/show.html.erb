@@ -5,20 +5,24 @@
       <strong>Name:</strong>
       <%= @team.name %>
     </p>
-    <strong>League:</strong>
-    <%= @team.league.name %>
+      <strong>League:</strong>
+      <%= @team.league.name %>
     </p>
-    <strong>Skill Level:</strong>
-    <%= @team.league.skill %>
+      <strong>Skill Level:</strong>
+      <%= @team.league.skill %>
+    </p>
+    <p>
+      <strong>Number of Players:</strong>
+      <%= @team.players.count %>
     </p>
   </div>
 
-  <div class="col-md-3">
-    <% @team.players.each do |player| %>
-    <li role="presentation">
-      <%= link_to player.name, player %>
-    </li>
-    <% end %>
+  <div class="col-md-3 col-md-ofset-1">
+    <ul>
+      <% @team.players.each do |player| %>
+          <li class="active"><%= link_to player.name, player %></li>
+      <% end %>
+    </ul>
   </div>
 
 
