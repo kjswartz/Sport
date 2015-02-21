@@ -26,6 +26,8 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
+    #gits rid of white space after team name
+    @team.name = @team.name.split.join(' ')
 
     respond_to do |format|
       if @team.save

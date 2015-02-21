@@ -26,7 +26,8 @@ class PlayersController < ApplicationController
   # POST /players.json
   def create
     @player = Player.new(player_params)
-    @player.name.split.join(' ')
+    # git rid of extra white space after name
+    @player.name = @player.name.split.join(' ')
 
     respond_to do |format|
       if @player.save
