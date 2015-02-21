@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :league_select, only: [:new, :edit, :update, :create]
+  before_action :view_tables, only: [:index, :show]
 
   # GET /teams
   # GET /teams.json
@@ -68,6 +69,12 @@ class TeamsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_team
       @team = Team.find(params[:id])
+    end
+
+    def view_tables
+      @teams = Team.all
+      @leagues = League.all
+      @players = Player.all
     end
 
     def league_select

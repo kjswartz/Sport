@@ -1,6 +1,7 @@
 class LeaguesController < ApplicationController
   before_action :set_league, only: [:show, :edit, :update, :destroy]
-
+  before_action :view_tables, only: [:index, :show]
+  
   def index
     @leagues = League.all
   end
@@ -52,6 +53,12 @@ class LeaguesController < ApplicationController
   private
     def set_league
       @league = League.find(params[:id])
+    end
+
+    def view_tables
+      @teams = Team.all
+      @leagues = League.all
+      @players = Player.all
     end
 
     def league_params

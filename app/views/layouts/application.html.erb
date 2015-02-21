@@ -16,6 +16,50 @@
 <body>
 
 <div class="container">
+  <div class="jumbotron">
+    <h1>X Sports League</h1>
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            Leagues
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation">
+              <%= link_to 'View All', leagues_path %>
+            </li>
+            <% @leagues.each do |league| %>
+            <li role="presentation">
+              <%= link_to league.name, league %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </li>
+      <li class="active">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            Teams
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation">
+              <%= link_to "View All", teams_path %>
+            </li>
+            <% @teams.each do |team| %>
+            <li role="presentation">
+              <%= link_to team.name, team %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </li>
+      <li class="active">
+        <%= link_to 'Players', players_path %>
+      </li>
+    </ul>
+  </div>
   <%= yield %>
 </div>
 
