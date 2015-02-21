@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :league_select, only: [:new, :edit, :update, :create]
 
   # GET /teams
   # GET /teams.json
@@ -67,8 +68,12 @@ class TeamsController < ApplicationController
       @team = Team.find(params[:id])
     end
 
+    def league_select
+      @league_select = League.all.collect { |l| [l.name, l.id] }
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name)
+      params.require(:team).permit(:name, :league_id)
     end
 end

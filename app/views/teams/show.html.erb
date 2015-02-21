@@ -4,6 +4,12 @@
   <strong>Name:</strong>
   <%= @team.name %>
 </p>
+<strong>League:</strong>
+<%= @team.league.name %>
+</p>
+<strong>Skill Level:</strong>
+<%= @team.league.skill %>
+</p>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

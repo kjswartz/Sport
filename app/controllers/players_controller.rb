@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :team_select, only: [:show, :new, :edit, :update, :create]
 
   # GET /players
   # GET /players.json
@@ -25,6 +26,7 @@ class PlayersController < ApplicationController
   # POST /players.json
   def create
     @player = Player.new(player_params)
+    @player.name.split.join(' ')
 
     respond_to do |format|
       if @player.save
@@ -67,8 +69,15 @@ class PlayersController < ApplicationController
       @player = Player.find(params[:id])
     end
 
+    def team_select
+      @team_select = Team.all.collect { |t| [t.name, t.id] }
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:name)
+      params.require(:player).permit(:name, :team_id)
     end
+
+
+
 end

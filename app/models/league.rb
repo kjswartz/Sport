@@ -10,5 +10,10 @@
 #
 
 class League < ActiveRecord::Base
+  #associations
   has_many :teams
+
+  #validations
+  validates :name, presence: true, uniqueness: true
+  validates :skill, presence: true, uniqueness: true
 end

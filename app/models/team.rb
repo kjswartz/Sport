@@ -12,9 +12,10 @@
 class Team < ActiveRecord::Base
   #associations
   belongs_to :league
-  has_many :team_players
-  has_many :players, through: :team_players
+  has_many :players
 
   #validations
-  validates :name, presence: true
+  validates :league, presence: true
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+
 end
