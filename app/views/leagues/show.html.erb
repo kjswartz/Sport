@@ -9,23 +9,25 @@
       <strong>Number of Teams:</strong>
       <%= @league.teams.count %>
     </p>
+    <p>
+      <strong>Teams:</strong>
+    </p>
+      <ul>
+        <% @league.teams.each do |team| %>
+          <li>
+            <%= link_to team.name, team %>
+          </li>
+        <% end %>
+      </ul>
   </div>
 
-  <div class="col-md-3 col-md-ofset-1">
-    <ul>
-      <% @league.teams.each do |team| %>
-      <li>
-        <%= link_to team.name, team %>
-      </li>
-      <% end %>
-    </ul>
+
+
   </div>
 </div>
 
-<nav class="navbar navbar-fixed-bottom">
-  <div class="container">
-      <%= link_to 'Edit', edit_league_path(@league) %>
-      <%= link_to 'List', leagues_path %>
+<nav class="navbar navbar-fixed-bottom container">
+      <%= link_to 'Edit', edit_league_path(@league) %> |
+      <%= link_to 'Back', leagues_path %> |
       <%= link_to 'Home', root_path %>
-  </div>
 </nav>

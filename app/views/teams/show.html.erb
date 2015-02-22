@@ -13,24 +13,20 @@
       <strong>Number of Players:</strong>
       <%= @team.players.count %>
     </p>
-  </div>
-
-  <div class="col-md-3 col-md-ofset-1">
+    <p>
+      <strong>Players:</strong>
+    </p>
     <ul>
       <% @team.players.each do |player| %>
           <li class="active"><%= link_to player.name, player %></li>
       <% end %>
     </ul>
   </div>
-
-
 </div>
 
-<nav class="navbar navbar-fixed-bottom">
-  <div class="container">
+<nav class="navbar navbar-fixed-bottom container">
     <%= link_to 'League', @team.league %> |
     <%= link_to 'Edit', edit_team_path(@team) %> |
     <%= link_to 'List All', teams_path %> |
     <%= link_to 'Home', root_path %>
-  </div>
 </nav>
