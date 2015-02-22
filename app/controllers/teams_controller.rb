@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :league_select, only: [:new, :edit, :update, :create]
-  before_action :view_tables, only: [:index, :show]
+  before_action :view_tables, only: [:index, :new, :show]
 
   # GET /teams
   # GET /teams.json

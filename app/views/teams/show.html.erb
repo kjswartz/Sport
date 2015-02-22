@@ -1,13 +1,11 @@
+<div class="page-header">
+  <h1><%= @team.name %> <small>// <%= @team.league.name %> League</small></h1>
+</div>
+<p id="notice"><%= notice %></p>
+
 <div class="row">
   <div class="col-md-3">
-    <p id="notice"><%= notice %></p>
     <p>
-      <strong>Name:</strong>
-      <%= @team.name %>
-    </p>
-      <strong>League:</strong>
-      <%= @team.league.name %>
-    </p>
       <strong>Skill Level:</strong>
       <%= @team.league.skill %>
     </p>
@@ -28,6 +26,11 @@
 
 </div>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %> |
-<%= link_to 'Home', root_path %>
+<nav class="navbar navbar-fixed-bottom">
+  <div class="container">
+    <%= link_to 'League', @team.league %> |
+    <%= link_to 'Edit', edit_team_path(@team) %> |
+    <%= link_to 'List All', teams_path %> |
+    <%= link_to 'Home', root_path %>
+  </div>
+</nav>

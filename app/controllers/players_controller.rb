@@ -1,8 +1,8 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
   before_action :team_select, only: [:show, :new, :edit, :update, :create]
-  before_action :view_tables, only: [:index, :show]
-  
+  before_action :view_tables, only: [:index, :new, :show]
+
   # GET /players
   # GET /players.json
   def index

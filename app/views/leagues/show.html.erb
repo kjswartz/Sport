@@ -1,14 +1,10 @@
+<div class="page-header">
+  <h1><%= @league.name %> League <small>// <%= @league.skill %></small></h1>
+</div>
+<p id="notice"><%= notice %></p>
+
 <div class="row">
   <div class="col-md-3">
-    <p id="notice"><%= notice %></p>
-    <p>
-      <strong>Name:</strong>
-      <%= @league.name %>
-    </p>
-    <p>
-      <strong>Skill Level:</strong>
-      <%= @league.skill %>
-    </p>
     <p>
       <strong>Number of Teams:</strong>
       <%= @league.teams.count %>
@@ -18,11 +14,18 @@
   <div class="col-md-3 col-md-ofset-1">
     <ul>
       <% @league.teams.each do |team| %>
-          <li class="active"><%= link_to team.name, team %></li>
+      <li>
+        <%= link_to team.name, team %>
+      </li>
       <% end %>
     </ul>
   </div>
 </div>
-<%= link_to 'Edit', edit_league_path(@league) %> |
-<%= link_to 'Back', leagues_path %> |
-<%= link_to 'Home', root_path %>
+
+<nav class="navbar navbar-fixed-bottom">
+  <div class="container">
+      <%= link_to 'Edit', edit_league_path(@league) %>
+      <%= link_to 'List', leagues_path %>
+      <%= link_to 'Home', root_path %>
+  </div>
+</nav>
