@@ -1,6 +1,6 @@
 class LeaguesController < ApplicationController
   before_action :set_league, only: [:show, :edit, :update, :destroy]
-  before_action :view_tables, only: [:index, :show, :edit, :update]
+  before_action :view_tables, only: [:new, :create, :index, :show, :edit, :update]
 
   def index
     @leagues = League.all
