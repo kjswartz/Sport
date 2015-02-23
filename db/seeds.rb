@@ -4,7 +4,7 @@
 
 unless League.count > 0
   4.times do |l|
-    League.create(name: "League #{l}", skill: Faker::Lorem.sentence
+    League.create(name: "League #{l}", skill: Faker::Lorem.sentence)
   end
 
   20.times do |t|
