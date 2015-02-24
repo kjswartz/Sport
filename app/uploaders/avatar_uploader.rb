@@ -7,7 +7,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :fog
   uploader = AvatarUploader.new
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -19,7 +19,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :resize_to_limit => [250, 200]
+  process :resize_to_fit => [250, 200]
   #
   # def scale(width, height)
   #   # do something
