@@ -25,8 +25,22 @@
       <tr>
         <td><%= image_tag player.avatar.thumb %></td>
         <td><%= player.name %></td>
-        <td><%= player.team.name %></td>
-        <td><%= player.team.league.name %></td>
+        <td><ul>
+          <% player.teams.each do |team| %>
+            <li><%= team.name %></li>
+          <% end %>
+        </ul></td>
+
+        <td><ul>
+          <% player.teams.each do |team| %>
+            <li><%= team.league.name %></li>
+          <% end %>
+        </ul></td>
+
+
+
+
+
         <td><%= link_to 'Show', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>

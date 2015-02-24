@@ -12,7 +12,8 @@
 class Team < ActiveRecord::Base
   #associations
   belongs_to :league
-  has_many :players, dependent: :destroy
+  has_many :playerizations, dependent: :destroy
+  has_many :players, through: :playerizations
 
   #validations
   validates :league, presence: true

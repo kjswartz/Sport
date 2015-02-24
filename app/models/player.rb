@@ -10,11 +10,11 @@
 
 class Player < ActiveRecord::Base
   #associations
-  belongs_to :team
+  has_many :playerizations, dependent: :destroy
+  has_many :teams, through: :playerizations
 
   mount_uploader :avatar, AvatarUploader
 
   #validations
-  validates :team, presence: true
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 end
