@@ -7,6 +7,8 @@ gem 'rails', '4.2.0'
 gem 'carrierwave'
 #fake seed data generater
 gem 'faker'
+# for image uploads
+gem "mini_magick"
 # postgres database
 gem 'pg'
 # Use SCSS for stylesheets

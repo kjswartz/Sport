@@ -12,6 +12,8 @@ class Player < ActiveRecord::Base
   #associations
   belongs_to :team
 
+  mount_uploader :avatar, AvatarUploader
+
   #validations
   validates :team, presence: true
   validates :name, presence: true, uniqueness: { case_sensitive: false }

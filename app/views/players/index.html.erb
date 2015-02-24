@@ -12,6 +12,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>Player</th>
       <th>Name</th>
       <th>Team</th>
       <th>League</th>
@@ -22,6 +23,7 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
+        <td><%= image_tag player.avatar.thumb %></td>
         <td><%= player.name %></td>
         <td><%= player.team.name %></td>
         <td><%= player.team.league.name %></td>
