@@ -17,7 +17,7 @@
    font-family: 'Roboto', sans-serif;
    font-weight: 500;
    padding-bottom: 70px;
-   background-image: image-url('sports.jpeg');
+   background-image: url('sports.jpeg');
    background-size: cover;
    height: 800px;
    background-repeat: no-repeat;
