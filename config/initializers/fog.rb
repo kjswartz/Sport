@@ -1,9 +1,9 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
-    :provider               => 'S3_BUCKET',                        # required
-    :aws_access_key_id      => 'S3_KEY',                        # required
-    :aws_secret_access_key  => 'S3_SECRET_KEY',                        # required
-    :endpoint               => 'https://console.aws.amazon.com/s3/home?region=us-west-2' # optional, defaults to nil
+    :provider               => 'AWS',                        # required
+    :aws_access_key_id      => ENV['S3_KEY'],                        # required
+    :aws_secret_access_key  => ENV['S3_SECRET_KEY'],
+    :endpoint               => 'http://s3.amazonaws.com' # optional, defaults to nil
   }
-  config.fog_directory  = '/config/initializers/fog.rb'                          # required
+  config.fog_directory  = ENV['S3_BUCKET']                     # required
 end
