@@ -15,13 +15,10 @@
     <%= f.label :name %><br>
     <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :team %><br>
-    <%= f.select :team_ids, @team_select, {include_blank: 'Assign a Team'} %>
-  </div>
+
   <div class="field">
     <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar %></br>
     <%= f.hidden_field :avatar_cache %>
     <%= image_tag(@player.avatar_url) if @player.avatar? %>
   </div>
@@ -29,6 +26,21 @@
     <%= f.check_box :remove_avatar %>
     <%= f.label 'Remove avatar' %>
   </div>
+
+  <div class="field">
+    <%= f.label 'Add Teams' %>
+    <%= hidden_field_tag "player[team_ids][]", nil %>
+    <ul>
+      <% Team.all.each do |team| %>
+        <li>
+          <%= check_box_tag "player[team_ids][]", team.id,
+            @player.teams.include?(team) %>
+          <%= team.name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
 
   <div class="actions">
     <%= f.submit class: "btn btn-default"%>

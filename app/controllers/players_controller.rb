@@ -83,7 +83,7 @@ class PlayersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:name, :team_ids, :avatar, :avatar_cache, :remove_avatar)
+      params.require(:player).permit(:name, :team_ids, :avatar, :avatar_cache, :remove_avatar, team_ids: [])
     end
 
 
