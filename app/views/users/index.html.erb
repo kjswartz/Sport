@@ -21,25 +21,25 @@
   </thead>
 
   <tbody>
-    <% @players.each do |player| %>
+    <% @users.each do |user| %>
       <tr>
-        <td><%= image_tag player.avatar.thumb %></td>
-        <td><%= player.name %></td>
+        <td><%= image_tag user.avatar.thumb %></td>
+        <td><%= user.name %></td>
         <td><ul>
-          <% player.teams.each do |team| %>
+          <% user.teams.each do |team| %>
             <li><%= team.name %></li>
           <% end %>
         </ul></td>
 
         <td><ul>
-          <% player.teams.each do |team| %>
+          <% user.teams.each do |team| %>
             <li><%= team.league.name %></li>
           <% end %>
         </ul></td>
 
-        <td><%= link_to 'Show', player %></td>
-        <td><%= link_to 'Edit', edit_player_path(player) %></td>
-        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -48,6 +48,6 @@
 <br>
 <ul class="nav nav-pills pull-left">
   <li class="active">
-    <%= link_to 'Create New Player', new_player_path %>
+    <%= link_to 'Create New Player', new_user_path %>
   </li>
 </ul>

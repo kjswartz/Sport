@@ -16,14 +16,14 @@
     </p>
     <p>
       <strong>Number of Players:</strong>
-      <%= @team.players.count %>
+      <%= @team.users.count %>
     </p>
     <p>
       <strong>Players:</strong>
     </p>
     <ul>
-      <% @team.players.each do |player| %>
-          <li class="active"><%= link_to player.name, player %></li>
+      <% @team.users.each do |user| %>
+          <li class="active"><%= link_to user.name, user %></li>
       <% end %>
     </ul>
   </div>

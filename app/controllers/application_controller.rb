@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def view_tables
     @teams = Team.all
     @leagues = League.all
-    @players = Player.all
+    @users = User.all
   end
 
 end

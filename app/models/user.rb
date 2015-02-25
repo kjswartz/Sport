@@ -1,15 +1,16 @@
 # == Schema Information
 #
-# Table name: players
+# Table name: users
 #
 #  id         :integer          not null, primary key
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  avatar     :string
+#  email      :string
 #
 
-class Player < ActiveRecord::Base
+class User < ActiveRecord::Base
   #associations
   has_many :playerizations, dependent: :destroy
   has_many :teams, through: :playerizations

@@ -1,17 +1,18 @@
 # == Schema Information
 #
-# Table name: playerizations
+# Table name: users
 #
 #  id         :integer          not null, primary key
-#  team_id    :integer
-#  user_id    :integer
+#  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  avatar     :string
+#  email      :string
 #
 
 require 'test_helper'
 
-class PlayerizationTest < ActiveSupport::TestCase
+class UserTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

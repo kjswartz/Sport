@@ -1,10 +1,10 @@
-<%= form_for @player, :html => {:multipart => true} do |f| %>
-  <% if @player.errors.any? %>
+<%= form_for @user, :html => {:multipart => true} do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @player.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -17,10 +17,15 @@
   </div>
 
   <div class="field">
+    <%= f.label :eamil %><br>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="field">
     <%= f.label :avatar %>
     <%= f.file_field :avatar %></br>
     <%= f.hidden_field :avatar_cache %>
-    <%= image_tag(@player.avatar_url) if @player.avatar? %>
+    <%= image_tag(@user.avatar_url) if @user.avatar? %>
   </div>
   <div class="field">
     <%= f.check_box :remove_avatar %>
@@ -29,12 +34,12 @@
 
   <div class="field">
     <%= f.label 'Add Teams' %>
-    <%= hidden_field_tag "player[team_ids][]", nil %>
+    <%= hidden_field_tag "user[team_ids][]", nil %>
     <ul>
       <% Team.all.each do |team| %>
         <li>
-          <%= check_box_tag "player[team_ids][]", team.id,
-            @player.teams.include?(team) %>
+          <%= check_box_tag "user[team_ids][]", team.id,
+            @user.teams.include?(team) %>
           <%= team.name %>
         </li>
       <% end %>
