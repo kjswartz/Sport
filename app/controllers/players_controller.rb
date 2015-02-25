@@ -1,7 +1,5 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
-  before_action :team_select, only: [:show, :new, :edit, :update, :create]
-  before_action :view_tables, only: [:index, :new, :show, :edit, :update, :create]
 
   # GET /players
   # GET /players.json
@@ -69,16 +67,6 @@ class PlayersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_player
       @player = Player.find(params[:id])
-    end
-
-    def view_tables
-      @teams = Team.all
-      @leagues = League.all
-      @players = Player.all
-    end
-
-    def team_select
-      @team_select = Team.all.collect { |t| [t.name, t.id] }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
