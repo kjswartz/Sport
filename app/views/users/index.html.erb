@@ -4,7 +4,7 @@
       <%= link_to "Home", root_path %>
     </li>
   </ul>
-  <h1>Players</h1>
+  <h1>Player</h1>
 </div>
 
 <p id="notice"><%= notice %></p>
@@ -29,7 +29,7 @@
     <td><%= @current_user.email %></td>
     <td><ul>
       <% @current_user.teams.each do |team| %>
-        <li><%= team.name %></li>
+        <li><%= link_to team.name, team %></li>
       <% end %>
     </ul></td>
     <td><ul>

@@ -23,9 +23,9 @@
     <ul class="nav nav-pills pull-right">
 
     <% if signed_in? %>
-    
+
       <li class="active">
-        <%= link_to 'Players', users_path %>
+        <%= link_to 'Player Profile', @current_user %>
       </li>
 
     <% else %>
