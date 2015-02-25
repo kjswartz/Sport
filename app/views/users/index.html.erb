@@ -14,6 +14,7 @@
     <tr>
       <th>Player</th>
       <th>Name</th>
+      <th>Email</th>
       <th>Team</th>
       <th>League</th>
       <th colspan="3"></th>
@@ -21,6 +22,24 @@
   </thead>
 
   <tbody>
+
+  <% if signed_in? %>
+    <td><%= image_tag @current_user.avatar.thumb.url %></td>
+    <td><%= @current_user.name %></td>
+    <td><%= @current_user.email %></td>
+    <td><ul>
+      <% @current_user.teams.each do |team| %>
+        <li><%= team.name %></li>
+      <% end %>
+    </ul></td>
+    <td><ul>
+      <% @current_user.teams.each do |team| %>
+        <li><%= team.league.name %></li>
+      <% end %>
+    </ul></td>
+    <td><%= link_to 'Show', @current_user %></td>
+    <td><%= link_to 'Edit', edit_user_path(@current_user) %></td>
+  <% else %>
     <% @users.each do |user| %>
       <tr>
         <td><%= image_tag user.avatar.thumb %></td>
@@ -30,24 +49,16 @@
             <li><%= team.name %></li>
           <% end %>
         </ul></td>
-
         <td><ul>
           <% user.teams.each do |team| %>
             <li><%= team.league.name %></li>
           <% end %>
         </ul></td>
-
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>
-
-<br>
-<ul class="nav nav-pills pull-left">
-  <li class="active">
-    <%= link_to 'Create New Player', new_user_path %>
-  </li>
-</ul>

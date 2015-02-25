@@ -15,9 +15,11 @@ unless Team.count > 0
   end
 end
 
-unless Player.count > 0
+unless User.count > 0
   rand_team_id = Team.pluck(:id).shuffle[0..12]
   40.times do |p|
-    Player.create(name: Faker::Name.name, team_ids: rand_team_id.sample(rand(3)))
+    User.create(name: Faker::Name.name, email: Faker::Internet.email, team_ids: rand_team_id.sample(rand(3)))
   end
 end
+
+User.where(name: "Guest", email: "guest@guest.com").first_or_create

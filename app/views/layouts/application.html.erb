@@ -21,6 +21,15 @@
   <div class="jumbotron">
     <h1>X Sports League</h1>
     <ul class="nav nav-pills pull-right">
+
+    <% if signed_in? %>
+    
+      <li class="active">
+        <%= link_to 'Players', users_path %>
+      </li>
+
+    <% else %>
+
       <li class="active">
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
@@ -60,6 +69,9 @@
       <li class="active">
         <%= link_to 'Players', users_path %>
       </li>
+
+    <% end %>
+
     </ul>
   </div>
     <%= yield %>
