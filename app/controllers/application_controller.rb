@@ -4,13 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :current_user
-  before_action :view_tables
 
-  def view_tables
-    @teams = Team.all
-    @leagues = League.all
-    @users = User.all
-  end
 
   def current_user
     @current_user = User.find_by(email: "guest@guest.com")
